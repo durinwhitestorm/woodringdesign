@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wood Ring Builder</title>
+    <link rel="stylesheet" href="../public/css/style.css">
 </head>
 <body>
     <nav>
@@ -51,12 +52,20 @@
             <section class="materialSelect">
                 <label for="materialSelection">Materials</label>
                 <select id="materialSelection">
-                    <!-- EJS loop going through materials -->
+                    <option value="wood">Wood</option>
+                    <option value="metal">Metal</option>
+                    <option value="stone">Stone</option>
                 </select>
             </section>
 
             <section class="materials">
-                <!-- EJS loop for selected materials -->
+                <!-- EJS loop for selected material -->
+                <ul>
+                    <% for(var i=0; i <material.length; i++) {%>
+                        <img href="<%=image[i}%>">
+                        <span><%= material %></span>
+                    }
+                </ul>
             </section>
         </section>
 
