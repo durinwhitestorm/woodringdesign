@@ -4,26 +4,57 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Wood Ring Builder</title>
 </head>
 <body>
     <nav>
         <section class="title"></section>
         <ul>
-            <li>Order</li>
-            <li>Save</li>
-            <li>Sign In</li>
-            <li>Options</li>
+            <li><a href="/order">Order</a></li>
+            <li><a href="/save">Save</a></li>
+            <li><a href="/login">Sign In</a></li>
         </ul>
     </nav>
     <section class="hero clearfix">
         <section class="main">
-            <section class="ringWidth">Width</section>
-            <section class="ringSize">Size</section>
-            <section class="layerSelect">Layer</section>
-            <section class="materialSelect">Select</section>
-            <section class="materials">
+            <form class="ringWidth">
+                <label for="ringWidthInput">Ring Width:</label>
+                <input id="ringWidthInput" type="number">mm
+                <button id="setWidth" type="button" name="button">Set Size</button>
+            </form>
 
+            <form class="ringSize">
+                <label for="ringSizeSelect">Ring Size:</label>
+                <input id="ringSizeSelect" type="number" ></input>
+                <button id="setSize" type="button" name="button">Set Size</button>
+            </form>
+
+            <section class="layerSelect">
+                <label for="layerSelection">Layer</label>
+                <select id="layerSelection">
+                    <option value="core">Core --Select layer to add new materials--</option>
+                    <option value="layer1">Layer 1</option>
+                    <option value="layer2">Layer 2</option>
+                    <option value="layer3">Layer 3</option>
+                    <option value="layer4">Layer 4</option>
+                    <option value="layer5">Layer 5</option>
+                    <option value="layer6">Layer 6</option>
+                    <option value="layer7">Layer 7</option>
+                    <option value="layer8">Layer 8</option>
+                    <option value="layer9">Layer 9</option>
+                    <option value="layer10">Layer 10</option>
+                </select>
+            </section>
+
+            <section class="materialSelect">
+                <label for="materialSelection">Materials</label>
+                <select id="materialSelection">
+                    <!-- EJS loop going through materials -->
+                </select>
+            </section>
+
+            <section class="materials">
+                <!-- EJS loop for selected materials -->
             </section>
         </section>
 
