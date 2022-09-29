@@ -5,7 +5,7 @@ const MaterialSchema = new mongoose.Schema({
         type: String,
         required: true,
       },
-      material: {
+      name: {
         type: String,
         required: true,
       },

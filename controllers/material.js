@@ -2,10 +2,9 @@ const Material = require('../models/Material')
 
 module.exports = {
     getMaterial: async (req,res)=>{
-        console.log(req.type)
         try{
-            const materialItem = await Material.find({type:req})
-            res.render('index.ejs', {material: materialItem, image: image})
+            const materialType = await Material.find({type: req})
+            res.render('index.ejs', {name: materialType, image: materialType})
         }catch(err){
             console.log(err)
         }
