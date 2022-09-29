@@ -10,6 +10,14 @@ module.exports = {
             console.log(err)
         }
     },
+    getIndex: async (req,res)=>{
+        try{
+            const material = await Material.find({type: 'wood'})
+            res.render('index.ejs', {material: material})
+        }catch(err){
+            console.log(err)
+        }
+    },
     createMaterial: async (req,res)=>{
         try {
             // Upload image to cloudinary

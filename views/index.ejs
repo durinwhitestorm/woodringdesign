@@ -60,13 +60,12 @@
             <section class="materials">
                 <!-- EJS loop for selected material -->
                 <ul>
-                    <!-- % for(var i=0; i< material.length; i++) 
-                            <li>
-                                <img href=" %=image[i]% ">
-                                <span> %= name[i]% </span>
-                            </li>    
-                        %
-                    -->
+                    <% for(var i=0; i< material.length; i++) {%> 
+                        <li>
+                            <img src="<%= material[i].image%>">
+                            <span> <%=material[i].name%> </span>
+                        </li>    
+                    <% } %>                   
                 </ul> 
             </section>
         </section>
