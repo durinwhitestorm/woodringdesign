@@ -50,6 +50,7 @@
                     <option value="8">Layer 7</option>
                     <option value="9">Layer 8</option>
                 </select>
+                <span class="removeLayer"></span>
             </section>
 
             <section class="materialSelect">
@@ -65,9 +66,9 @@
                 <!-- EJS loop for selected material -->
                 <ul>
                     <% for(var i=0; i< material.length; i++) {%> 
-                        <li>
+                        <li class="materialListItem" id="<%=material[i].name%>">
                             <img src="<%= material[i].image%>">
-                            <span> <%=material[i].name%> </span>
+                            <span> <%=material[i].name%> </span>                           
                         </li>    
                     <% } %>                   
                 </ul> 
@@ -93,5 +94,6 @@
             <section class="inlayManip"></section>
         </section>
     </section>
+    <script scr="../public/js/main.js"></script>
 </body>
 </html>
