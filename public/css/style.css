@@ -58,15 +58,33 @@
       .main .materials{
         width: 100%;
         height: 70%;
+        display: flex;
+        flex-flow: row wrap;
       }
-  
+      
+      /* .materialListItem{
+        width: 100px;
+        height: 100px;
+      } */
+      
     .display{
       width: 50%;
       height: 90%;
+    }
+
+    .displayObj{
+      position: absolute;
+      
+    }
+    .layerCore{
+      width: 100px;
+      height: 100px;
     }
   
   /******************************************
   /* ADDITIONAL STYLES
   /*******************************************/
   
-  
+  .dev{
+    display: none;
+  }

@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wood Ring Builder</title>
+    <link href="/css/style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
     <nav>
@@ -22,19 +23,19 @@
             <form class="ringTitle">
                 <label for="ringTitleInput">Ring Name:</label>
                 <input id="ringTitleInput" type="text">
-                <button id="setTitle" type="button" name="button">Set Name</button>
+                <!-- <button id="setTitle" type="button" name="button">Set Name</button> -->
             </form>
 
             <form class="ringWidth">
                 <label for="ringWidthInput">Ring Width:</label>
                 <input id="ringWidthInput" type="number">mm
-                <button id="setWidth" type="button" name="button">Set Size</button>
+                <!-- <button id="setWidth" type="button" name="button">Set Size</button> -->
             </form>
 
             <form class="ringSize">
                 <label for="ringSizeSelect">Ring Size:</label>
                 <input id="ringSizeSelect" type="number" ></input>
-                <button id="setSize" type="button" name="button">Set Size</button>
+                <!-- <button id="setSize" type="button" name="button">Set Size</button> -->
             </form>
 
             <section class="layerSelect">
@@ -50,7 +51,7 @@
                     <option value="8">Layer 7</option>
                     <option value="9">Layer 8</option>
                 </select>
-                <span class="removeLayer"></span>
+                <span class="removeLayer">Remove Layer</span>
             </section>
 
             <section class="materialSelect">
@@ -67,12 +68,24 @@
                 <ul>
                     <% for(var i=0; i< material.length; i++) {%> 
                         <li class="materialListItem" id="<%=material[i].name%>">
-                            <img src="<%= material[i].image%>">
+                            <img class="materialImage" src="<%= material[i].image%>">
                             <span> <%=material[i].name%> </span>                           
                         </li>    
                     <% } %>                   
                 </ul> 
             </section>
+        </section>
+
+        <section class="display">
+            <div class="displayObj layerCore"></div>
+            <div class="displayObj layer1"></div>
+            <div class="displayObj layer2"></div>
+            <div class="displayObj layer3"></div>
+            <div class="displayObj layer4"></div>
+            <div class="displayObj layer5"></div>
+            <div class="displayObj layer6"></div>
+            <div class="displayObj layer7"></div>
+            <div class="displayObj layer8"></div>
         </section>
 
         <section class="dev">
@@ -90,10 +103,7 @@
             </form>
         </section>
 
-        <section class="display">
-            <section class="inlayManip"></section>
-        </section>
     </section>
-    <script scr="../public/js/main.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>
