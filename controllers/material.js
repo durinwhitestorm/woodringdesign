@@ -12,7 +12,7 @@ module.exports = {
     },
     getIndex: async (req,res)=>{
         try{
-            const material = await Material.find({type: 'wood'})
+            const material = await Material.find()
             res.render('index.ejs', {material: material})
         }catch(err){
             console.log(err)

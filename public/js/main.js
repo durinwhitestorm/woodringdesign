@@ -1,133 +1,102 @@
 let ringSize 
 let ringWidth 
 let ringTitle 
-let layerSelect 
+let currentLayer
+let currentZValue
+
+function Layer(zval) {
+    this.zval = zval
+    // this.zval = zval
+    // this.material = material
+    // this.width = width
+    // this.display = display
+}
+
+const layerOne = new Layer(1)
+const layerTwo = new Layer(2)
+const layerThree = new Layer(3)
+const layerFour = new Layer(4)
+const layerFive = new Layer(5)
+const layerSix = new Layer(6)
+const layerSeven = new Layer(7)
+const layerEight = new Layer(8)
+const layerNine = new Layer(9)
+
 
 const materialItem = document.querySelectorAll('.materialImage')
-const removeLayer = document.querySelector('.removeLayer')
 
 Array.from(materialItem).forEach((material)=>{
     material.addEventListener('click', setLayerImage)
 })
-document.querySelector(".ringSize").addEventListener('change', setRingSize)
-document.querySelector(".ringWidth").addEventListener('change', setRingWidth)
-document.querySelector(".ringTitle").addEventListener('change', setRingTitle)
+document.querySelector("#ringSizeSelect").addEventListener('change', setRingSize)
+document.querySelector("#ringWidthInput").addEventListener('change', setRingWidth)
+document.querySelector("#ringTitleInput").addEventListener('change', setRingTitle)
+document.querySelector("#inlayWidth").addEventListener('change', setInlayWidth)
 document.querySelector("#layerSelection").addEventListener('change', setZLayer)
+document.querySelector("#removeLayer").addEventListener('click', removeLayer)
 
-// document.querySelector('.removeLayer').addEventListener('click', setLayerImage)
+document.querySelector('#inlaySlider').addEventListener('change', inlaySlider)
+
 
 function setZLayer(){
-
+    currentZValue = this.value
+    currentLayer = '.layer' + currentZValue
+    document.querySelector(currentLayer).style.zIndex = currentZValue
+    document.querySelector(currentLayer).style.display = true
+    
 }
 
 function setLayerImage(){
     const materialImage = this.src
-    document.querySelector('.layerCore').style.backgroundImage = `url(${materialImage})`
+    const materialName = this.parentNode.id
+    document.querySelector(currentLayer).style.backgroundImage = `url(${materialImage})`
+    
+    switch(currentLayer){
+        case '.layer1': layerOne.display = true; layerOne.material = materialName; break;          
+        case '.layer2': layerTwo.display = true; layerTwo.material = materialName; break;
+        case '.layer3': layerThree.display = true; layerThree.material = materialName; break;
+        case '.layer4': layerFour.display = true; layerFour.material = materialName; break;
+        case '.layer5': layerFive.display = true; layerFive.material = materialName; break;
+        case '.layer6': layerSix.display = true; layerSix.material = materialName; break;
+        case '.layer7': layerSeven.display = true; layerSeven.material = materialName; break;
+        case '.layer8': layerEight.display = true; layerEight.material = materialName; break;
+        case '.layer9': layerNine.display = true; layerNine.material = materialName; break;
+    }
 }
 
-//async function markComplete(){
-    //     const todoId = this.parentNode.dataset.id
-    //     try{
-    //         const response = await fetch('todos/markComplete', {
-    //             method: 'put',
-    //             headers: {'Content-type': 'application/json'},
-    //             body: JSON.stringify({
-    //                 'todoIdFromJSFile': todoId
-    //             })
-    //         })
-    //         const data = await response.json()
-    //         console.log(data)
-    //         location.reload()
-    //     }catch(err){
-    //         console.log(err)
-    //     }
-    // }
-
-function changeMaterialList(){
-
+function inlaySlider(){
+    
 }
 
-function setRingSize(size){
-
+function setInlayWidth(){
+    const inlayWidth = this.value
+    console.log(inlayWidth)
+    if(inlayWidth <= ringWidth){
+        document.querySelector(currentLayer).style.width = (inlayWidth * 10) + 'px'
+    }else{
+        alert('Please input a number smaller than the total width')
+    }
 }
 
-function setRingWidth(width){
+// function changeMaterialList(){
 
-}
-
-function setRingTitle(name){
-    //May not need if .onChange will work
-    //May be able to tie in with Save button
-}
-
-
-
-// const deleteBtn = document.querySelectorAll('.del')
-// const todoItem = document.querySelectorAll('span.not')
-// const todoComplete = document.querySelectorAll('span.completed')
-
-// Array.from(deleteBtn).forEach((el)=>{
-//     el.addEventListener('click', deleteTodo)
-// })
-
-// Array.from(todoItem).forEach((el)=>{
-//     el.addEventListener('click', markComplete)
-// })
-
-// Array.from(todoComplete).forEach((el)=>{
-//     el.addEventListener('click', markIncomplete)
-// })
-
-// async function deleteTodo(){
-//     const todoId = this.parentNode.dataset.id
-//     try{
-//         const response = await fetch('todos/deleteTodo', {
-//             method: 'delete',
-//             headers: {'Content-type': 'application/json'},
-//             body: JSON.stringify({
-//                 'todoIdFromJSFile': todoId
-//             })
-//         })
-//         const data = await response.json()
-//         console.log(data)
-//         location.reload()
-//     }catch(err){
-//         console.log(err)
-//     }
 // }
 
-// async function markComplete(){
-//     const todoId = this.parentNode.dataset.id
-//     try{
-//         const response = await fetch('todos/markComplete', {
-//             method: 'put',
-//             headers: {'Content-type': 'application/json'},
-//             body: JSON.stringify({
-//                 'todoIdFromJSFile': todoId
-//             })
-//         })
-//         const data = await response.json()
-//         console.log(data)
-//         location.reload()
-//     }catch(err){
-//         console.log(err)
-//     }
-// }
+function setRingSize(){
+    ringSize = this.value
+}
 
-// async function markIncomplete(){
-//     const todoId = this.parentNode.dataset.id
-//     try{
-//         const response = await fetch('todos/markIncomplete', {
-//             method: 'put',
-//             headers: {'Content-type': 'application/json'},
-//             body: JSON.stringify({
-//                 'todoIdFromJSFile': todoId
-//             })
-//         })
-//         const data = await response.json()
-//         console.log(data)
-//         location.reload()
-//     }catch(err){
-//         console.log(err)
-//     }
-// }
+function setRingWidth(){
+    ringWidth = this.value
+    console.log(ringWidth)
+    document.querySelector('.layer1').style.width = (ringWidth * 10) + 'px'
+}
+
+function setRingTitle(){
+    ringTitle = this.value
+}
+
+function removeLayer(){
+    document.querySelector(currentLayer).style.display = false
+    document.querySelector(currentLayer).style.backgroundImage = ''
+}
