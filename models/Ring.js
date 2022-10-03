@@ -153,9 +153,6 @@ const RingSchema = new mongoose.Schema({
       type: Boolean,
     },
   },
-  comments: {
-    type: String,
-  },
   userId: {
     type: String,
     required: true

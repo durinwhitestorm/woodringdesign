@@ -68,26 +68,39 @@
         height: 100px;
       }
       
+    .rightSide{
+      display: flex;
+      flex-flow:column;
+      width: 50%;
+      /* height:  */
+    }
+
     .display{
-      width: 50vw;
-      height: 90vh;
-      position: relative;
+      width: 100%;
+      height: 70vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .inlayManip{
+      height: 10vh;
+      width: 40%;
+      
     }
 
     .displayObj{
-      position: absolute;
-      top: 20%;
-      left: 40%;
+      height: 100%;
+
+    }
+
+    #layerCore{
+      
       width: 100px;
-      height: 100px;
+      height: 60%;
       border: 2px solid blue;
     }
 
-    .layer9{
-      background: yellow;
-      offset-position: 20%;
-      width: 30px;
-    }
     
   
   /******************************************

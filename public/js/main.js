@@ -35,6 +35,7 @@ document.querySelector("#inlayWidth").addEventListener('change', setInlayWidth)
 document.querySelector("#layerSelection").addEventListener('change', setZLayer)
 document.querySelector("#removeLayer").addEventListener('click', removeLayer)
 
+document.querySelector('#save').addEventListener('click', saveRing)
 document.querySelector('#inlaySlider').addEventListener('change', inlaySlider)
 
 
@@ -43,7 +44,6 @@ function setZLayer(){
     currentLayer = '.layer' + currentZValue
     document.querySelector(currentLayer).style.zIndex = currentZValue
     document.querySelector(currentLayer).style.display = true
-    
 }
 
 function setLayerImage(){
@@ -65,7 +65,20 @@ function setLayerImage(){
 }
 
 function inlaySlider(){
-    
+    const inlayPosition = this.value
+    document.querySelector(currentLayer).style.left = inlayPosition + 'px'
+
+    switch(currentLayer){
+        // case '.layer1': layerOne.xval = ringWidth * inlayPosition; break;          
+        case '.layer2': layerTwo.xval = ringWidth * inlayPosition; break;
+        case '.layer3': layerThree.xval = ringWidth * inlayPosition; break;
+        case '.layer4': layerFour.xval = ringWidth * inlayPosition; break;
+        case '.layer5': layerFive.xval = ringWidth * inlayPosition; break;
+        case '.layer6': layerSix.xval = ringWidth * inlayPosition; break;
+        case '.layer7': layerSeven.xval = ringWidth * inlayPosition; break;
+        case '.layer8': layerEight.xval = ringWidth * inlayPosition; break;
+        case '.layer9': layerNine.xval = ringWidth * inlayPosition; break;
+    }
 }
 
 function setInlayWidth(){
@@ -73,6 +86,18 @@ function setInlayWidth(){
     console.log(inlayWidth)
     if(inlayWidth <= ringWidth){
         document.querySelector(currentLayer).style.width = (inlayWidth * 10) + 'px'
+
+        switch(currentLayer){
+            // case '.layer1': layerOne.width = inlayWidth; break;          
+            case '.layer2': layerTwo.width = inlayWidth; break;
+            case '.layer3': layerThree.width = inlayWidth; break;
+            case '.layer4': layerFour.width = inlayWidth; break;
+            case '.layer5': layerFive.width = inlayWidth; break;
+            case '.layer6': layerSix.width = inlayWidth; break;
+            case '.layer7': layerSeven.width = inlayWidth; break;
+            case '.layer8': layerEight.width = inlayWidth; break;
+            case '.layer9': layerNine.width = inlayWidth; break;
+        }
     }else{
         alert('Please input a number smaller than the total width')
     }
@@ -89,7 +114,7 @@ function setRingSize(){
 function setRingWidth(){
     ringWidth = this.value
     console.log(ringWidth)
-    document.querySelector('.layer1').style.width = (ringWidth * 10) + 'px'
+    document.querySelector('.layer1').style.width = (ringWidth * 50) + 'px'
 }
 
 function setRingTitle(){
@@ -99,4 +124,8 @@ function setRingTitle(){
 function removeLayer(){
     document.querySelector(currentLayer).style.display = false
     document.querySelector(currentLayer).style.backgroundImage = ''
+}
+
+function saveRing(){
+    console.log(layerOne, layerTwo, layerThree, layerFour)
 }
