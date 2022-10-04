@@ -9,13 +9,13 @@ module.exports = {
             console.log(err)
         }
     },
-    // getRings: async (req,res)=>{
-    //     console.log(req.user)
-    //     try{
-    //         await Ring.find({userId:req.user.id})
-    //         res.render('profile.ejs', {})
-    //     }catch(err){
-    //         console.log(err)
-    //     }
-    // }
+    getRings: async (req,res)=>{
+        console.log(req.user)
+        try{
+            const ringItems = await Ring.find({userId:req.user.id})
+            res.render('profile.ejs', {title: ringItems})
+        }catch(err){
+            console.log(err)
+        }
+    }
 }

@@ -7,6 +7,29 @@
     <title>Wood Ring Builder</title>
 </head>
 <body>
-    <h1><a href="/"></a></h1>
+    <h1><a href="/">Return to designer</a></h1>
+    <ul>
+        <% title.forEach( el => { %>
+                <li class='ringItem' data-id='<%=el._id%>'>
+                    <span><%=el.title %></span>
+                </li>
+        <% }) %>    
+        </ul>
+
+        <!-- if user = dev/owner then show code below -->
+        <section class="dev">
+            <form action="/material/addMat" enctype="multipart/form-data" method="POST">
+                <label for="matType">Material type</label>
+                <input type="text" id="matType" name="matType">
+
+                <label for="matName">Material name</label>
+                <input type="text" id="matName" name="matName">
+
+                <label for="imageUpload">Material image</label>
+                <input type="file" id="imageUpload" name="file">
+
+                <button type="submit" value="upload">Submit</button>
+            </form>
+        </section>
 </body>
 </html>
