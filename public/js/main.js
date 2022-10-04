@@ -4,6 +4,21 @@ let ringTitle
 let currentLayer
 let currentZValue
 
+// function Ring(title,core,layer1,layer2,layer3,layer4,layer5,layer6,layer7,layer8){
+//     this.title = title
+//     this.core = core
+//     this.layer1 = layer1
+//     this.layer2 = layer2
+//     this.layer3 = layer3
+//     this.layer4 = layer4
+//     this.layer5 = layer5
+//     this.layer6 = layer6
+//     this.layer7 = layer7
+//     this.layer8 = layer8
+//     // this.userId = userId
+// }
+
+
 function Layer(zval) {
     this.zval = zval
     // this.zval = zval
@@ -126,6 +141,18 @@ function removeLayer(){
     document.querySelector(currentLayer).style.backgroundImage = ''
 }
 
-function saveRing(){
+async function saveRing(){
     console.log(layerOne, layerTwo, layerThree, layerFour)
+    // const ring = new Ring(ringTitle, layerOne, layerTwo, layerThree, layerFour, layerFive, layerSix, layerSeven,layerEight, layerNine)
+    try{
+        const response = await fetch('/save', {
+            method: 'post',
+            headers: {'Content-type': 'application/json'},
+            body: JSON.stringify({
+                
+            })
+        })
+    }catch(err){
+        console.log(err)
+    }
 }
