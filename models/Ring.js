@@ -15,7 +15,7 @@ const RingSchema = new mongoose.Schema({
       type: Number,
       required: true,
     },
-    required: true,
+    
   },
   layer1: {
     material: {

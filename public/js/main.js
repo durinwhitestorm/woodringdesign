@@ -143,15 +143,25 @@ function removeLayer(){
 
 async function saveRing(){
     console.log(layerOne, layerTwo, layerThree, layerFour)
-    // const ring = new Ring(ringTitle, layerOne, layerTwo, layerThree, layerFour, layerFive, layerSix, layerSeven,layerEight, layerNine)
     try{
         const response = await fetch('/save', {
             method: 'post',
             headers: {'Content-type': 'application/json'},
             body: JSON.stringify({
-                
+                'ringTitleJS': ringTitle,
+                'layerOneJS': layerOne,
+                'layerTwoJS': layerTwo,
+                'layerThreeJS': layerThree,
+                'layerFourJS': layerFour,
+                'layerFiveJS': layerFive,
+                'layerSixJS': layerSix,
+                'layerSevenJS': layerSeven,
+                'layerEightJS': layerEight,
+                'layerNineJS': layerNine,
             })
         })
+        const data = await response.json()
+        console.log(data)
     }catch(err){
         console.log(err)
     }
