@@ -43,6 +43,8 @@ const materialItem = document.querySelectorAll('.materialImage')
 Array.from(materialItem).forEach((material)=>{
     material.addEventListener('click', setLayerImage)
 })
+
+document.querySelector("#backgroundSelect").addEventListener('change', setBackground)
 document.querySelector("#ringSizeSelect").addEventListener('change', setRingSize)
 document.querySelector("#ringWidthInput").addEventListener('change', setRingWidth)
 document.querySelector("#ringTitleInput").addEventListener('change', setRingTitle)
@@ -53,6 +55,17 @@ document.querySelector("#removeLayer").addEventListener('click', removeLayer)
 document.querySelector('#save').addEventListener('click', saveRing)
 document.querySelector('#inlaySlider').addEventListener('change', inlaySlider)
 
+function setBackground(){
+    if(value='whiteBGD'){
+        document.querySelector('body').style.background = 'white'
+    }else if(value='grayBGD'){
+        document.querySelector('body').style.background = 'gray'
+    }else if(value='blackBGD'){
+        document.querySelector('body').style.background = 'black'
+    }else if(value='shopBGD'){
+        document.querySelector('body').style.background = 'blue'
+    }
+}
 
 function setZLayer(){
     currentZValue = this.value
